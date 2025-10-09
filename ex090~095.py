@@ -52,9 +52,36 @@ while quant > 0:
     jogo['partida'].append(int(input(f"Quantos gols na partida {i+1}: ")))
     quant -= 1
     i += 1
-print(f"O jogador {jogo['nome']} jogou {[i]} partidas")
+print(f"O jogador {jogo['nome']} jogou {i} partidas")
 for j,k in enumerate(jogo['partida']):
     print(f"Na partida {j}, fez {k} gols")
     total += k
 jogo['total'] = total
-print(f"Foram {total} gols")
+print(f"Foram {jogo['total']} gols")
+#Exer 94
+pes = ''
+list = []
+cont = 0
+media = 0
+mulheres = []
+up = []
+while True:
+    if pes.lower() == 'n':
+        break
+    nome = str(input("Qual seu nome? "))
+    sexo = str(input("Qual seu sexo M/F: "))
+    idade = int(input("Qual sua idade? "))
+    list.append({'nome': nome, 'sexo':sexo, 'idade': idade})
+    pes = str(input("Quer continuar (N)/(S): "))
+    media += list[cont]['idade']
+    cont += 1
+media /= cont
+for j,i in enumerate(list):
+    if i['sexo'].lower() == 'f':
+        mulheres.append(list[j]['nome'])
+    if i['idade'] > media:
+        up.append(list[j])
+print(f"Foram contratadas {cont} pessoas")
+print(f"A média de idade é {media}")
+print(f"A lista com todas as mulheres são {mulheres}")
+print(f"As pessoas acima da media são {up}")
